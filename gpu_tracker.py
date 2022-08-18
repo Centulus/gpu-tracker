@@ -58,7 +58,7 @@ with open('result.csv', 'a') as f_object:
 
 # Requête vers le webhook
 
-webhook_url = "https://discord.com/api/webhooks/1007461174515867668/t7uzsujgxSHlnVtnyl6kH5kD4A-vwR02qC-JY_wxuRCjTuZuqL0ZnuGUhkHcpp0eGKlQ"
+webhook_url = "WEBHOOK_URL_HERE"
 
 data = {}
 
