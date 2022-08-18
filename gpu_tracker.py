@@ -5,6 +5,13 @@ import os
 from csv import DictWriter
 import requests
 import time
+import gspread
+
+# Tableur en ligne
+
+sa = gspread.service_account()
+sh = sa.open("GPUS")
+wks = sh.worksheet("result")
 
 # Fonction pour bypass CloudFlare
 
