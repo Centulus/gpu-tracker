@@ -85,7 +85,10 @@ alm_links = grab_link.find('a', attrs={'id': 'productlink'})
 b_links = str(alm_links).replace(' ', '')
 c_links = b_links.replace('\n', '')
 d_links = c_links.replace('<aclass="btnbtn-primary"href="', '')
-links = d_links.replace('"id="productlink"style="margin-bottom:0px;color:#fff!important;border-color:#ffffff;width:100%;background-color:#3aa524;font-size:20px!important;"target="new"type="button">PRODUCTLINK</a>', '')
+links = d_links.replace(
+    '"id="productlink"style="margin-bottom:0px;color:#fff!important;border-color:#ffffff;width:100%;background-color:#3aa524;font-size:20px!important;"target="new"type="button">PRODUCTLINK</a>',
+    "",
+)
 
 # Extraire les données
 
