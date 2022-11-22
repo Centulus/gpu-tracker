@@ -6,7 +6,7 @@ from csv import DictWriter
 import requests
 import time
 from more_itertools import unique_everseen
-from webserver import keep_alive
+# from webserver import keep_alive (SEULEMENT POUR REPLIT)
 
 # Fonction pour bypass CloudFlare
 
@@ -14,7 +14,7 @@ scraper = cloudscraper.create_scraper()
 
 # Garder le script en marche
 
-keep_alive()
+# keep_alive() (SEULEMENT POUR REPLIT)
 
 # Cooldown
 
@@ -97,8 +97,8 @@ except requests.exceptions.HTTPError as err:
 else:
   print("Message envoyé avec succès, code {}.".format(result.status_code))
 
-# Redémarrer le script
+# Redémarrer le script (SEULEMENT POUR REPLIT)
 
-while 1:
-  os.system("python3 main.py")
-  print("Redémarrage en cours...")
+# while 1:
+#  os.system("python3 main.py")
+#  print("Redémarrage en cours...")
