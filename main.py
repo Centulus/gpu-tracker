@@ -78,11 +78,18 @@ for link in soup.findAll('a',
                          attrs={'href':
                                 re.compile("./?page=productfeed&id=")}):
   link_2 = link.get('href').replace(".", "http://restockwatch.com")
-  links = link_2.replace(" ", "")
+  linkz = link_2.replace(" ", "")
+pr_link = scraper.get(linkz).text
+grab_link = BeautifulSoup(pr_link, "lxml")
+alm_links = grab_link.find('a', attrs={'id': 'productlink'})
+b_links = str(alm_links).replace(' ', '')
+c_links = b_links.replace('\n', '')
+d_links = c_links.replace('<aclass="btnbtn-primary"href="', '')
+links = d_links.replace('"id="productlink"style="margin-bottom:0px;color:#fff!important;border-color:#ffffff;width:100%;background-color:#3aa524;font-size:20px!important;"target="new"type="button">PRODUCTLINK</a>', '')
 
 # Extraire les données
 
-page = scraper.get(links).text
+page = scraper.get(link_2).text
 soup = BeautifulSoup(page, "lxml")
 image_1 = soup.find('image', attrs={'id': 'previewimage'})
 img = str(image_1).replace('<image id="previewimage" src="', '')
