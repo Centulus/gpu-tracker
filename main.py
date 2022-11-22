@@ -12,9 +12,9 @@ from more_itertools import unique_everseen
 
 scraper = cloudscraper.create_scraper()
 
-# Garder le script en marche
+# Garder le script en marche (SEULEMENT POUR REPLIT)
 
-# keep_alive() (SEULEMENT POUR REPLIT)
+# keep_alive()
 
 # Cooldown
 
@@ -73,29 +73,31 @@ with open('result.csv', 'a') as f_object:
 with open('result.csv', 'r') as f, open('gpus.csv', 'w') as out_file:
   out_file.writelines(unique_everseen(f))
 
-# Requête vers le webhook
 
-webhook_url = os.environ.get("DISCORD_BOT_SECRET")
+# Requête vers le webhook (webservice)
 
-data = {}
+#webhook_url = os.environ.get("DISCORD_BOT_SECRET")
 
-data["embeds"] = [{
-  "description": prix,
-  "title": produit,
-  "url": links,
-  "image": {
-    "url": image
-  }
-}]
+#data = {}
 
-result = requests.post(webhook_url, json=data)
+#data["embeds"] = [{
+#  "description": prix,
+#  "title": produit,
+#  "url": links,
+#  "image": {
+#    "url": image
+#  }
+#}]
 
-try:
-  result.raise_for_status()
-except requests.exceptions.HTTPError as err:
-  print(err)
-else:
-  print("Message envoyé avec succès, code {}.".format(result.status_code))
+#result = requests.post(webhook_url, json=data)
+
+#try:
+#  result.raise_for_status()
+#except requests.exceptions.HTTPError as err:
+#  print(err)
+#else:
+#  print("Message envoyé avec succès, code {}.".format(result.status_code))
+
 
 # Redémarrer le script (SEULEMENT POUR REPLIT)
 
