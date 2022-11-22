@@ -6,10 +6,15 @@ from csv import DictWriter
 import requests
 import time
 from more_itertools import unique_everseen
+from webserver import keep_alive
 
 # Fonction pour bypass CloudFlare
 
 scraper = cloudscraper.create_scraper()
+
+# Garder le script en marche
+
+keep_alive()
 
 # Cooldown
 
