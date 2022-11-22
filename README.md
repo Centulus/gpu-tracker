@@ -1,0 +1,4 @@
+-Télécharger sous format zip
+-Extraire l'archive
+-Lancer la commande : pip install -r requirements.txt
+-Enfin lancer le programme et profitez !
