@@ -2,10 +2,13 @@ import cloudscraper
 from bs4 import BeautifulSoup
 import re
 import os
+from os import system, name
 from csv import DictWriter
 import requests
 import time
+from time import sleep
 from more_itertools import unique_everseen
+
 # from webserver import keep_alive (SEULEMENT POUR REPLIT)
 
 # Fonction pour bypass CloudFlare
@@ -16,9 +19,43 @@ scraper = cloudscraper.create_scraper()
 
 # keep_alive()
 
-# Cooldown
+# une fonction clear
+def clear():
+ 
+    # pour windows
+    if name == 'nt':
+        _ = system('cls')
+ 
+    # pour GNU/linux, mac etc...
+    else:
+        _ = system('clear')
 
-time.sleep(15)
+# une fonction chargement        
+def chargement(): 
+    clear()
+    print('\\')
+    sleep(1)
+    clear()
+    print("|")
+    sleep(1)
+    clear()
+    print("/")
+    sleep(1)
+    clear()
+    print('-')
+    sleep(1)
+    clear()
+    print('\\')
+    sleep(1)
+    clear()
+    print("|")
+    sleep(1)
+    clear()
+    print("/")
+    sleep(1)
+    clear()
+
+chargement()    
 
 # Les listes
 
