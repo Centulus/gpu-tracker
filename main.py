@@ -113,7 +113,7 @@ with open('result.csv', 'r') as f, open('gpus.csv', 'w') as out_file:
 
 # Requête vers le webhook (webservice)
 
-#webhook_url = os.environ.get("DISCORD_BOT_SECRET")
+#webhook_url = ""
 
 #data = {}
 
