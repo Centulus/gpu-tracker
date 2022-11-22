@@ -56,6 +56,11 @@ with open('result.csv', 'a') as f_object:
      dictwriter_object.writerow(dict)
      f_object.close()
 
+# Suprimmer les lignes en doubles
+
+with open('result.csv', 'r') as f, open('gpus.csv', 'w') as out_file:
+    out_file.writelines(unique_everseen(f))
+
 # Requête vers le webhook
 
 webhook_url = "WEBHOOK_URL_HERE"
