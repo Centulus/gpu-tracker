@@ -161,7 +161,8 @@ intents.members = True
 bot = commands.Bot(command_prefix = "!", intents = intents)
 
 @bot.slash_command()
-async def ping(interaction: nextcord.Interaction):
+async def gpu(interaction: nextcord.Interaction):
+  """Grab le dernier gpu dispo"""
   if x == 1:
     ctx = await interaction.send("<a:loading:1045094164393627749>")
     chargement()
