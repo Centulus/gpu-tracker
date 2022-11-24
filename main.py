@@ -20,6 +20,24 @@ import discord
 
 scraper = cloudscraper.create_scraper()
 
+# Changer d'ip si c'est la même
+
+with open('old_ip.txt', 'r') as oldip:
+      old_ip = oldip.readline()
+      old_ip = old_ip.replace("\n", "")
+      old_ip = old_ip.replace(" ", "")
+
+system("hostname -I | awk '{print $1}' > new_ip.txt")
+with open('new_ip.txt', 'r') as newip:
+  new_ip = newip.readline()
+  new_ip = new_ip.replace("\n", "")
+  new_ip = new_ip.replace(" ", "")
+  x = 1
+  if old_ip == new_ip:
+    system("kill 1")
+  elif x == 1:
+    system("hostname -I | awk '{print $1}' > old_ip.txt")
+
 # Garder le script en marche (SEULEMENT POUR REPLIT)
 
 keep_alive()
