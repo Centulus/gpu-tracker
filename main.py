@@ -14,14 +14,11 @@ from nextcord.ext import tasks
 import nextcord
 from nextcord import Interaction
 from nextcord.ext import commands
-import discord
 
 # Fonction pour bypass CloudFlare
-
 scraper = cloudscraper.create_scraper()
 
 # Changer d'ip si c'est la même
-
 with open('old_ip.txt', 'r') as oldip:
       old_ip = oldip.readline()
       old_ip = old_ip.replace("\n", "")
@@ -32,14 +29,12 @@ with open('new_ip.txt', 'r') as newip:
   new_ip = newip.readline()
   new_ip = new_ip.replace("\n", "")
   new_ip = new_ip.replace(" ", "")
-  x = 1
   if old_ip == new_ip:
     system("kill 1")
-  elif x == 1:
+  else:
     system("hostname -I | awk '{print $1}' > old_ip.txt")
 
 # Garder le script en marche (SEULEMENT POUR REPLIT)
-
 keep_alive()
 
 # une fonction clear
@@ -88,7 +83,6 @@ print("\n")
 chargement()    
 
 # Les listes
-
 produit = []
 prix = []
 links = []
@@ -138,25 +132,8 @@ def extract_data():
   prix_2 = px.replace('</div>', '')
   extract_data.produit = produit_2.replace('\n', '')
   extract_data.prix = prix_2.replace('\n', '')
-
-# Exporter dans un tableur
-
-#field_names = ['Nom du Gpu', 'Prix', 'Lien']
-
-#dict = {'Nom du Gpu': produit, 'Prix': prix, 'Lien': links}
-
-#with open('result.csv', 'a') as f_object:
- # dictwriter_object = DictWriter(f_object, fieldnames=field_names)
-  #dictwriter_object.writerow(dict)
- # f_object.close()
-
-# Suprimmer les lignes en doubles
-
-#with open('result.csv', 'r') as f, open('gpus.csv', 'w') as out_file:
- # out_file.writelines(unique_everseen(f))
-
+  
 # Requête vers un bot discord
-
 extract_data()
 pro = extract_data.produit
 li = extract_data.links
@@ -164,10 +141,11 @@ prx = extract_data.prix
 img = extract_data.image
 produit = pro
 links = li
-prix = prx + "$"
+prix_z = prx + "$"
+prix = prx
 image = img
 
-embed=discord.Embed(title=produit, url=links, description=prix, color=0xFF5733)
+embed=nextcord.Embed(title=produit, url=links, description=prix_z, color=0xFF5733)
 embed.set_image(url=image)
 x = 1
 
@@ -177,6 +155,11 @@ intents = nextcord.Intents.all()
 intents.members = True
 
 bot = commands.Bot(command_prefix = "!", intents = intents)
+
+@bot.event
+async def on_ready():
+  print("\n")
+  print("Bot lancé avec succès !")
 
 @bot.slash_command()
 async def gpu(interaction: nextcord.Interaction):
@@ -194,7 +177,7 @@ async def gpu(interaction: nextcord.Interaction):
     links = li
     prix = prx + "$"
     image = img
-    embed=discord.Embed(title=produit, url=links, description=prix, color=0xFF5733)
+    embed=nextcord.Embed(title=produit, url=links, description=prix_z, color=0xFF5733)
     embed.set_image(url=image)
     await ctx.edit ("_ _")
     await ctx.edit(embed=embed)
